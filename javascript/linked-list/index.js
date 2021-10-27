@@ -88,7 +88,6 @@ class LinkedList {
     return;
   }
 
-
 }
 
 module.exports = LinkedList;
