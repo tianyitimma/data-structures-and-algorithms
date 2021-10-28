@@ -35,12 +35,12 @@ class LinkedList {
   toString() {
     let current = this.head;
     let result = [];
-    while(current) {
-      result.push(`{ ${current.value} } -> `);
+    while(current.next) {
+      result.push( `${current.value} -> `);
       current = current.next;
     }
     result.push(current.value);
-    return result;
+    return result.toString();
   }
 
   append(value) {
@@ -90,4 +90,7 @@ class LinkedList {
 
 }
 
-module.exports = LinkedList;
+module.exports = {
+  LinkedList,
+  Node,
+};
