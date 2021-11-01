@@ -6,7 +6,8 @@
 
 - [linked-list-insertions](./linked-list)
 - [linked-list-kth](./linked-list-kth/README.md)
-
+- [stack-queue](./code-challenge-10/README.md)
+- [stack-queue-qseudo](./code-challenge-11/README.md)
 
 ### Folder and Challenge Setup
 
