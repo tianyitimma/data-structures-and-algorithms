@@ -118,13 +118,13 @@ module.exports = {
 
 // console.log(stack.isEmpty());
 
-let queue = new Queue();
+// let queue = new Queue();
 // queue.enqueue(3);
 // queue.enqueue(4);
-queue.enqueue(5);
+// queue.enqueue(5);
 //queue.enqueue(6);
 
-console.log(JSON.stringify(queue));
+// console.log(JSON.stringify(queue));
 
 // console.log(queue.dequeue());
 // console.log(JSON.stringify(queue));
