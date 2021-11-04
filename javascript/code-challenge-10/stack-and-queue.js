@@ -25,7 +25,7 @@ class Stack {
       this.top = oldTop.next;
       return oldTop.value;
     } else {
-      return 'exception';
+      return false;
     }
   }
 
@@ -33,7 +33,7 @@ class Stack {
     if(this.top){
       return this.top.value;
     } else {
-      return 'exception';
+      return false;
     }
   }
 
@@ -74,7 +74,7 @@ class Queue {
       this.front = oldFront.next;
       return oldFront.value;
     } else {
-      return 'exception';
+      return false;
     }
   }
 
@@ -82,7 +82,7 @@ class Queue {
     if(this.front) {
       return this.front.value;
     } else {
-      return 'exception';
+      return false;
     }
   }
 
