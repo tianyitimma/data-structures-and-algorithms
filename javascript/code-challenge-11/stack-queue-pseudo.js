@@ -14,16 +14,16 @@ class PseudoQueue {
 
   enqueue(value) {
 
-    if(this.stackResult.peek() === 'exception') {
+    if(!this.stackResult.peek()) {
       this.stackResult.push(value);
       return this.stackResult;
     }
-    while(this.stackResult.peek() !== 'exception') {
+    while(this.stackResult.peek()) {
       let privousNode = this.stackResult.pop();
       this.stackInput.push(privousNode);
     }
     this.stackInput.push(value);
-    while(this.stackInput.peek() !== 'exception'){
+    while(this.stackInput.peek()){
       let newNode = this.stackInput.pop();
       this.stackResult.push(newNode);
     }
@@ -32,8 +32,8 @@ class PseudoQueue {
   }
 
   dequeue() {
-    if(this.stackResult.peek() === 'exception'){
-      return 'exception';
+    if(!this.stackResult.peek()){
+      return false;
     } else {
       return this.stackResult.pop();
     }

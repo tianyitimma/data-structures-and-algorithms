@@ -65,8 +65,8 @@ describe('6. Can successfully instantiate an empty stack', () => {
 describe('7. Calling pop or peek on empty stack raises exception', () => {
   it('Should return exception', () => {
     let stack = new Stack();
-    expect(stack.peek()).toBe('exception');
-    expect(stack.pop()).toBe('exception');
+    expect(stack.peek()).toBeFalsy();
+    expect(stack.pop()).toBeFalsy();
   });
 });
 
@@ -136,8 +136,8 @@ describe('14. Calling dequeue or peek on empty queue raises exception', () => {
   it('Should return exceptions', () => {
     let queue = new Queue();
 
-    expect(queue.dequeue()).toBe('exception');
-    expect(queue.peek()).toBe('exception');
+    expect(queue.dequeue()).toBeFalsy();
+    expect(queue.peek()).toBeFalsy();
   });
 });
 
