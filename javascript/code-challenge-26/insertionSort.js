@@ -14,7 +14,7 @@ function insertionSort(arr) {
   return console.log(arr);
 }
 
-module.exports = insertionSort;
+module.exports = insertionSort();
 
 let arr1 = [8,4,23,42,16,15];
 let n = Math.floor(3/2);
