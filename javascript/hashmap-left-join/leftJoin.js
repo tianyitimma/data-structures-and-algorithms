@@ -43,4 +43,3 @@ console.log(ht1.map);
 
 leftJoin(ht1,ht2);
 
-// module.exports = leftJoin;
