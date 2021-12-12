@@ -38,6 +38,21 @@ class Graph {
     neighbors.push(newEdge);
   }
 
+  addUndirectedEdge(startVertex, endVertex, weight = 0) {
+    if(!this.adjacencyList.has(startVertex) && !this.adjacencyList.has(endVertex)) {
+      throw new Error('Vertex do not exist');
+    }
+
+    let forward = this.adjacencyList.get(startVertex);
+    let backward = this.adjacencyList.get(endVertex);
+
+    let newEdgeForward = new Edge(endVertex, weight);
+    let newEdgeBackward = new Edge(startVertex, weight);
+
+    forward.push(newEdgeForward);
+    backward.push(newEdgeBackward);
+  }
+
   getNeighbors(vertex) {
     if(!this.adjacencyList.has(vertex)) {
       throw new Error('GET NEIGHBOR ERROR :: Invalid vertex');
@@ -74,6 +89,31 @@ class Graph {
     return visitedNodes;
   }
 
+  depthFirst(startVertex){
+    const visitedVertex = new Set();
+    const stack = [startVertex];
+    visitedVertex.add(startVertex);
+
+    while(stack.length) {
+
+      const current = stack.pop();
+
+      let neighbors = this.getNeighbors(current);
+
+      for (let edge of neighbors) {
+
+        let neighbor = edge.vertex;
+
+        if (!visitedVertex.has(neighbor)) {
+          stack.push(neighbor);
+          visitedVertex.add(neighbor);
+        }
+      }
+    }
+
+    return visitedVertex;
+  }
+
   size(){
     return this.totalNodes;
   }
@@ -92,19 +132,17 @@ let F = graph.addVertex('F');
 let G = graph.addVertex('G');
 let H = graph.addVertex('H');
 
-graph.addDirectedEdge(A, D);
-graph.addDirectedEdge(A, C);
-graph.addDirectedEdge(A, B);
-graph.addDirectedEdge(D, F);
-graph.addDirectedEdge(B, C);
-graph.addDirectedEdge(B, E);
-graph.addDirectedEdge(C, F);
-graph.addDirectedEdge(C, E);
-graph.addDirectedEdge(C, B);
-graph.addDirectedEdge(F, G);
-graph.addDirectedEdge(G, H);
-graph.addDirectedEdge(H, F);
+graph.addUndirectedEdge(A, B);
+graph.addUndirectedEdge(A, D);
+graph.addUndirectedEdge(B, C);
+graph.addUndirectedEdge(B, D);
+graph.addUndirectedEdge(C, G);
+graph.addUndirectedEdge(D, E);
+graph.addUndirectedEdge(D, H);
+graph.addUndirectedEdge(D, F);
+graph.addUndirectedEdge(H, F);
 
 // console.log(graph);
-console.log(graph.breadthFirst(A));
+console.log('breadth first', graph.breadthFirst(A));
+console.log('depth first', graph.depthFirst(A));
 console.log(graph.size());
